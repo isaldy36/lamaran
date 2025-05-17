@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontak Saya</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <section id="kontak">
+    <h2>Hubungi Saya</h2>
+    <form action="php/proses_kontak.php" method="POST" id="formKontak">
+      <label for="nama">Nama:</label>
+      <input type="text" name="nama" id="nama" required />
+
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" required />
+
+      <label for="pesan">Pesan:</label>
+      <textarea name="pesan" id="pesan" rows="5" required></textarea>
+
+      <button type="submit">Kirim Pesan</button>
+    </form>
+    <p id="notifikasi"></p>
+  </section>
+
+  <script src="js/script.js"></script>
+  <script>
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('status') === 'sukses') {
+    const notif = document.getElementById('notifikasi');
+    notif.textContent = "Pesan berhasil dikirim. Terima kasih!";
+    notif.style.color = "green";
+  }
+</script>
+
+</body>
+</html>
